@@ -27,3 +27,14 @@ COPY
 WORKDIR
 EXPOSE
 CMD
+Now, let's go ahead and build the HexGL image and test it out.
+
+First, let's build the image and tag it as hexgl:latest.
+
+docker image build -t hexgl:latest .
+
+You can then run it with:
+
+docker container run --name hexgl -d --rm --publish mode=ingress,published=18080,target=8080 hexgl:latest
+
+and test it in a web tab on port 18080. The main goal here is simply to make sure that the application is running correctly.
