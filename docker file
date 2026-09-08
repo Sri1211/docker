@@ -1,0 +1,29 @@
+cat << EOF > ./Dockerfile
+# Use a python:3.10 as the base image
+FROM python:3.10-bullseye
+
+# Make a directory in the image called /app to hold the files
+RUN mkdir /app
+
+# Copy all the source code files into the /app directory
+COPY . /app
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Define the port that the application listens on
+EXPOSE 8080
+
+# Launch the python http.server on port 8080
+CMD ["python", "-m", "http.server", "8080"]
+EOF
+You can now look at the resulting Dockerfile by running the command 
+cat Dockerfile
+. You should take a little time here to read all the comments and related commands to try to understand what is going on. Below, you can find links to the documentation for each of the commands that were used in the Dockerfile:
+
+FROM
+RUN
+COPY
+WORKDIR
+EXPOSE
+CMD
